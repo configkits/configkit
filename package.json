@@ -1,0 +1,33 @@
+{
+  "name": "configkits-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Configuration-driven rendering framework monorepo",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "docs"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "clean": "turbo run clean",
+    "type-check": "turbo run type-check",
+    "docs:dev": "turbo run docs:dev",
+    "docs:build": "turbo run docs:build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "turbo": "^1.11.0",
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "npm@10.0.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
+
