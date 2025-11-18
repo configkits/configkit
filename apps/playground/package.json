@@ -14,8 +14,12 @@
     "@configkits/core": "*",
     "@configkits/react": "*",
     "@configkits/flags": "*",
+    "@monaco-editor/react": "^4.6.0",
+    "monaco-editor": "^0.45.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-console-emulator": "^1.0.0",
+    "babel-runtime": "^6.26.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.45",
