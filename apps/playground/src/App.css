@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .editor-panel,
@@ -23,23 +27,17 @@
   font-size: 20px;
 }
 
-.editor {
+.editor-container {
   flex: 1;
-  background: #0d1117;
-  color: #c9d1d9;
   border: 1px solid #30363d;
   border-radius: 6px;
-  padding: 12px;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  resize: none;
-  overflow: auto;
+  overflow: hidden;
+  min-height: 0;
 }
 
-.editor:focus {
-  outline: none;
+.editor-container:focus-within {
   border-color: #58a6ff;
+  box-shadow: 0 0 0 1px #58a6ff;
 }
 
 .error {
@@ -58,17 +56,114 @@
   border-radius: 6px;
   padding: 20px;
   overflow: auto;
+  min-height: 0;
+  margin-bottom: 10px;
+}
+
+.console-viewer {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  min-height: 50px;
+}
+
+.console-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.console-header:hover {
+  background: #1c2128;
+}
+
+.console-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.console-icon {
+  font-size: 16px;
+}
+
+.console-title {
+  color: #c9d1d9;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.console-count {
+  background: #30363d;
+  color: #c9d1d9;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.console-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.console-clear-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.console-clear-btn:hover {
+  background: #30363d;
+  border-color: #484f58;
+}
+
+.console-toggle {
+  color: #8b949e;
+  font-size: 12px;
+  user-select: none;
+}
+
+.console-content {
+  flex: 1;
+  overflow: hidden;
+  max-height: 250px;
+  min-height: 200px;
+  background: #0d1117;
+  display: flex;
+  flex-direction: column;
+}
+
+.console-content > * {
+  height: 100%;
 }
 
 @media (max-width: 768px) {
   .app {
     grid-template-columns: 1fr;
-    height: auto;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
   }
   
   .editor-panel,
   .preview-panel {
-    min-height: 400px;
+    min-height: 0;
   }
 }
 
