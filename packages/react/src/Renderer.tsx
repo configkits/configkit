@@ -3,7 +3,7 @@
  */
 
 import React, { useMemo } from "react";
-import type { ComponentConfig } from "@configkits/core";
+import type { ComponentConfig, EventConfig } from "@configkits/core";
 import type { ConfigRendererProps, RendererOptions } from "./types";
 import { DefaultComponentRegistry, defaultRegistry } from "./ComponentRegistry";
 
@@ -30,13 +30,16 @@ const ConfigRenderer: React.FC<ConfigRendererProps> = ({ config, options }) => {
     }
 
     // Render children recursively
-    const renderedChildren = children.map((child) => renderComponent(child)).filter(Boolean) as React.ReactElement[];
+    const renderedChildren = children.length > 0
+      ? children.map((child: ComponentConfig) => renderComponent(child)).filter(Boolean) as React.ReactElement[]
+      : null;
 
     // Merge props with styles and event handlers
+    const { children: propsChildren, ...restProps } = props;
     const componentProps: any = {
-      ...props,
+      ...restProps,
       ...(styles && { style: styles }),
-      ...(events && events.reduce((acc, event) => {
+      ...(events && events.reduce((acc: Record<string, any>, event: EventConfig) => {
         acc[event.type] = (e?: any) => {
           if (options?.onEvent) {
             options.onEvent(event.type, event.handler, {
@@ -49,7 +52,21 @@ const ConfigRenderer: React.FC<ConfigRendererProps> = ({ config, options }) => {
       }, {} as Record<string, any>)),
     };
 
-    return React.createElement(Component, componentProps, renderedChildren);
+    // Determine what to pass as children
+    // Priority: rendered children (from children array) > props.children (text content)
+    if (renderedChildren && renderedChildren.length > 0) {
+      // If we have rendered child components, spread them as separate arguments
+      return React.createElement(Component, componentProps, ...renderedChildren);
+    }
+    
+    // If no rendered children, use props.children (for text content in leaf nodes)
+    // Only pass if it's defined (string, number, or other valid React child)
+    if (propsChildren !== undefined && propsChildren !== null) {
+      return React.createElement(Component, componentProps, propsChildren);
+    }
+    
+    // No children at all
+    return React.createElement(Component, componentProps);
   };
 
   const configArray = Array.isArray(config) ? config : [config];
