@@ -17,7 +17,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@configkits/core": ["../../packages/core/src"],
+      "@configkits/react": ["../../packages/react/src"],
+      "@configkits/flags": ["../../packages/flags/src"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "../../packages/core" }, { "path": "../../packages/react" }, { "path": "../../packages/flags" }]
