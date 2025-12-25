@@ -18,8 +18,7 @@
       "outputs": ["coverage/**"]
     },
     "docs:build": {
-      "dependsOn": ["^build"],
-      "outputs": ["docs/.vitepress/dist/**"]
+      "outputs": [".vitepress/dist/**"]
     },
     "docs:dev": {
       "cache": false,
