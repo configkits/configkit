@@ -15,9 +15,14 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
-    "incremental": true
+    "noEmit": false
   },
-  "exclude": ["node_modules", "dist", "build", ".next"]
+  "files": [],
+  "exclude": ["node_modules", "dist", "build", ".next"],
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/flags" },
+    { "path": "packages/react" }
+  ]
 }
 

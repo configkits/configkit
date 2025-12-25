@@ -1,7 +1,6 @@
-import { Box, Heading, Flex, Container, HStack, Link as ChakraLink, Button, Icon, Image, } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Heading, Flex, Container, HStack, Link as ChakraLink, Button,  Image, } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { CONFIGKITS_LOGO_ICON, DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../../constants'
+import { DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../../constants'
 import { ConfigKitsLogo } from '../../pages/Home'
 
 type Props = {
