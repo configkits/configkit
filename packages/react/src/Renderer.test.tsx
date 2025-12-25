@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { ConfigRenderer } from './Renderer';
 import { defaultRegistry } from './ComponentRegistry';
 import type { ComponentConfig } from '@configkits/core';

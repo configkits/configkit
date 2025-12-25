@@ -1,7 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
 import { useConfig, useConfigUpdate } from './hooks';
-import { ConfigParser } from '@configkits/core';
 
 describe('useConfig', () => {
   it('should parse valid config string', async () => {

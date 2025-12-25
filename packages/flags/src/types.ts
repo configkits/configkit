@@ -2,7 +2,7 @@
  * Types for feature flags
  */
 
-import type { FeatureConfig, ConditionConfig } from "@configkits/core";
+import type { ConditionConfig } from "@configkits/core";
 
 export interface FeatureFlagContext {
   userId?: string;
