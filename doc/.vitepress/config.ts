@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  lang: 'en-US',
   title: 'ConfigKits',
   description: 'Configuration-driven rendering framework',
   themeConfig: {
