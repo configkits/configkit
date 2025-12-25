@@ -5,11 +5,12 @@
     "rootDir": "./src",
     "composite": true,
     "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationMap": true,
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }
 
