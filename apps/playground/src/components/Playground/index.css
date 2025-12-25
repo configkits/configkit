@@ -1,0 +1,240 @@
+.app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .editor-panel,
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .editor-panel h2,
+  .preview-panel h2 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .editor-container {
+    flex: 1;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    overflow: hidden;
+    min-height: 0;
+  }
+  
+  .editor-container:focus-within {
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 1px #58a6ff;
+  }
+  
+  .error {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f85149;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .preview-content {
+    flex: 1;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 20px;
+    overflow: auto;
+    min-height: 0;
+    margin-bottom: 10px;
+  }
+  
+  .console-viewer {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    min-height: 50px;
+  }
+  
+  .console-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+  }
+  
+  .console-header:hover {
+    background: #1c2128;
+  }
+  
+  .console-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .console-icon {
+    font-size: 16px;
+  }
+  
+  .console-title {
+    color: #c9d1d9;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .console-count {
+    background: #30363d;
+    color: #c9d1d9;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .console-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .console-clear-btn {
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .console-clear-btn:hover {
+    background: #30363d;
+    border-color: #484f58;
+  }
+  
+  .console-toggle {
+    color: #8b949e;
+    font-size: 12px;
+    user-select: none;
+  }
+  
+  .console-content {
+    flex: 1;
+    overflow: hidden;
+    max-height: 250px;
+    min-height: 200px;
+    background: #0d1117;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .console-content > * {
+    height: 100%;
+  }
+
+  .console-logs {
+    padding: 10px;
+    overflow-y: auto;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+  }
+
+  .console-log {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+    word-wrap: break-word;
+  }
+
+  .console-log:last-child {
+    border-bottom: none;
+  }
+
+  .console-log-icon {
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  .console-log-time {
+    flex-shrink: 0;
+    color: #8b949e;
+    font-size: 11px;
+    min-width: 80px;
+  }
+
+  .console-log-message {
+    flex: 1;
+    min-width: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.5;
+  }
+
+  .console-log-line {
+    margin: 2px 0;
+  }
+
+  .console-log-json {
+    margin: 4px 0;
+  }
+
+  .console-json-content {
+    background: #161b22;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #30363d;
+    margin: 4px 0;
+    overflow-x: auto;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 1.4;
+    color: inherit;
+  }
+
+  .console-empty {
+    padding: 20px;
+    text-align: center;
+    color: #8b949e;
+    font-size: 13px;
+  }
+  
+  @media (max-width: 768px) {
+    .app {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100vh;
+    }
+    
+    .editor-panel,
+    .preview-panel {
+      min-height: 0;
+    }
+  }
+  

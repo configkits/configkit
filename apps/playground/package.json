@@ -11,15 +11,20 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.10.9",
     "@configkits/core": "*",
-    "@configkits/react": "*",
     "@configkits/flags": "*",
+    "@configkits/react": "*",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@monaco-editor/react": "^4.6.0",
+    "babel-runtime": "^6.26.0",
+    "framer-motion": "^12.23.26",
     "monaco-editor": "^0.45.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-console-emulator": "^1.0.0",
-    "babel-runtime": "^6.26.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.45",
@@ -34,4 +39,3 @@
     "vite": "^5.0.8"
   }
 }
-
