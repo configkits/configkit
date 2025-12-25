@@ -17,7 +17,6 @@
     "isolatedModules": true,
     "noEmit": false
   },
-  "files": [],
   "exclude": ["node_modules", "dist", "build", ".next"],
   "references": [
     { "path": "packages/core" },
