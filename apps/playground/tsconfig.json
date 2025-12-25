@@ -25,7 +25,6 @@
       "@configkits/flags": ["../../packages/flags/src"]
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "../../packages/core" }, { "path": "../../packages/react" }, { "path": "../../packages/flags" }]
+  "include": ["src"]
 }
 

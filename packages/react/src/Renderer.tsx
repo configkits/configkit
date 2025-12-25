@@ -4,7 +4,7 @@
 
 import React, { useMemo } from "react";
 import type { ComponentConfig, EventConfig } from "@configkits/core";
-import type { ConfigRendererProps, RendererOptions } from "./types";
+import type { ConfigRendererProps } from "./types";
 import { DefaultComponentRegistry, defaultRegistry } from "./ComponentRegistry";
 
 const ConfigRenderer: React.FC<ConfigRendererProps> = ({ config, options }) => {
@@ -36,11 +36,17 @@ const ConfigRenderer: React.FC<ConfigRendererProps> = ({ config, options }) => {
 
     // Merge props with styles and event handlers
     const { children: propsChildren, ...restProps } = props;
-    const componentProps: any = {
+    const componentProps: Record<string, any> = {
       ...restProps,
-      ...(styles && { style: styles }),
-      ...(events && events.reduce((acc: Record<string, any>, event: EventConfig) => {
-        acc[event.type] = (e?: any) => {
+    };
+    
+    if (styles) {
+      componentProps.style = styles;
+    }
+    
+    if (events && events.length > 0) {
+      events.forEach((event: EventConfig) => {
+        componentProps[event.type] = (e?: any) => {
           if (options?.onEvent) {
             options.onEvent(event.type, event.handler, {
               ...event.payload,
@@ -48,25 +54,25 @@ const ConfigRenderer: React.FC<ConfigRendererProps> = ({ config, options }) => {
             });
           }
         };
-        return acc;
-      }, {} as Record<string, any>)),
-    };
+      });
+    }
 
     // Determine what to pass as children
     // Priority: rendered children (from children array) > props.children (text content)
     if (renderedChildren && renderedChildren.length > 0) {
       // If we have rendered child components, spread them as separate arguments
-      return React.createElement(Component, componentProps, ...renderedChildren);
+      return React.createElement(Component, componentProps as any, ...renderedChildren);
     }
     
     // If no rendered children, use props.children (for text content in leaf nodes)
     // Only pass if it's defined (string, number, or other valid React child)
     if (propsChildren !== undefined && propsChildren !== null) {
-      return React.createElement(Component, componentProps, propsChildren);
+      return React.createElement(Component, componentProps as any, propsChildren as any);
     }
     
-    // No children at all
-    return React.createElement(Component, componentProps);
+    // No children at all - create element without children parameter
+    // Use explicit typing to avoid overload resolution issues
+    return React.createElement(Component, componentProps as Record<string, any>);
   };
 
   const configArray = Array.isArray(config) ? config : [config];

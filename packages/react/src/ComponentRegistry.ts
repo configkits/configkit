@@ -5,7 +5,7 @@
 import React from "react";
 import type { ComponentRegistry, ComponentFactory } from "./types";
 
-export class DefaultComponentRegistry implements ComponentRegistry {
+export class DefaultComponentRegistry {
   private components: Map<string, React.ComponentType<any>>;
   private factories: Map<string, ComponentFactory>;
 
@@ -66,5 +66,6 @@ export class DefaultComponentRegistry implements ComponentRegistry {
   }
 }
 
-export const defaultRegistry = new DefaultComponentRegistry();
+const _defaultRegistry = new DefaultComponentRegistry();
+export const defaultRegistry = _defaultRegistry as DefaultComponentRegistry & ComponentRegistry;
 
