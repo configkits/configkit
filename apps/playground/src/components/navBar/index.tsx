@@ -1,7 +1,6 @@
 import { Box, Heading, Flex, Container, HStack, Link as ChakraLink, Button,  Image, } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../../constants'
-import { ConfigKitsLogo } from '../../pages/Home'
+import { CONFIGKITS_LOGO_ICON, DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../../constants'
 
 type Props = {
     scrollY: number
@@ -38,7 +37,7 @@ const NavBar = (props: Props) => {
               textDecoration: "none",
             }}
           >
-            <ConfigKitsLogo size={10} />
+            <Image src={CONFIGKITS_LOGO_ICON} w={10} h={10} alt="ConfigKits Logo" />
             <Heading size="lg" color="gray.800">
               ConfigKits
             </Heading>
