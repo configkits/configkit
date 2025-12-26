@@ -7,5 +7,5 @@
 export const DOCS_URL = (import.meta.env as any).VITE_DOCS_URL || 'http://localhost:5173';
 export const GITHUB_URL = 'https://github.com/configkits/configkit';
 export const GITHUB_ICON = 'https://img.icons8.com/?size=100&id=106562&format=png&color=ffffff';
-export const CONFIGKITS_LOGO_ICON = 'src/assets/icon.png';
+export const CONFIGKITS_LOGO_ICON = './src/assets/icon.png';
 
