@@ -5,6 +5,7 @@ export default defineConfig({
   title: 'ConfigKits',
   description: 'Configuration-driven rendering framework',
   themeConfig: {
+    logo: '/logo.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
