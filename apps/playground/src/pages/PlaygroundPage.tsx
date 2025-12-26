@@ -19,7 +19,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import Playground from '../components/Playground';
-import { CONFIGKITS_LOGO_ICON, DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../constants';
+import { DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../constants';
+import { CONFIGKITS_LOGO_ICON } from '../assets';
 
 function PlaygroundPage() {
   const bgNav = useColorModeValue('white', 'gray.800');

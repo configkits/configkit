@@ -1,0 +1,1 @@
+export const CONFIGKITS_LOGO_ICON = new URL('./logo.png', import.meta.url).href;

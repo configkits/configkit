@@ -31,7 +31,8 @@ import {
 
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { CONFIGKITS_LOGO_ICON, DOCS_URL, GITHUB_URL } from '../constants';
+import { DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../constants';
+import { CONFIGKITS_LOGO_ICON } from '../assets';
 //import NavBar from 'src/components/navBar';
 
 const MotionBox = motion(Box);
@@ -175,6 +176,16 @@ function Home() {
                   bgGradient="linear(to-r, brand.500, brand.600)"
                 >
                   🚀 Playground
+                </Button>
+                <Button
+                  as="a"
+                  href={GITHUB_URL}
+                  colorScheme="brand"
+                  size="sm"
+                  leftIcon={
+                    <Image src={GITHUB_ICON} w={5} h={5} alt="GitHub" />
+                  }>
+                  GitHub
                 </Button>
               </HStack>
             )}

@@ -1,6 +1,7 @@
 import { Box, Heading, Flex, Container, HStack, Link as ChakraLink, Button,  Image, } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { CONFIGKITS_LOGO_ICON, DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../../constants'
+import {  DOCS_URL, GITHUB_ICON, GITHUB_URL } from '../../constants'
+import { CONFIGKITS_LOGO_ICON } from 'src/assets'
 
 type Props = {
     scrollY: number
